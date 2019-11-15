@@ -46,12 +46,14 @@ def CrankshaftWaveform(): #Michael Mechelay's Crankshaft Waveform Function
 
 	#Setup the pinModes
 	a.pinMode(MyPin, a.OUTPUT)
+	a.pinMode(9,a.OUTPUT) #pin for 5volt output
 
 	while True:
 		if not enableSignal:
 			a.digitalWrite(MyPin, a.LOW)
 			break
 	#Set PWM Signal
+		a.digitalWrite(9,a.HIGH) # 5v output for step up circuit.
 		for i in range(2):
 			a.digitalWrite(MyPin,a.LOW) #2 small
 			sleep(0.004) #in seconds
